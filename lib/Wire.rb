@@ -1,7 +1,7 @@
-# This class represent a net that connects multiple instance
+# This class represent a wire that connects multiple instance
 # ports.
 #
-class Net
+class Wire
   attr_reader :name
 
   def initialize(opts)
