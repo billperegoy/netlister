@@ -1,3 +1,5 @@
+# This class represents a module port.
+#
 class Port
   attr_reader :name, :type
 

@@ -8,19 +8,19 @@ describe Inst do
     mod.add_port Port.new(name: 'y', type: 'out')
     mod
   end
-  
+
   it "can create an instance and gets its name" do
     inst = Inst.new(name: 'u1', mod: and_gate)
-    inst.name.should == 'u1'
+    expect(inst.name).to eq 'u1'
   end
 
   it "can create an instance and associate it with a module" do
     inst = Inst.new(name: 'u1', mod: and_gate)
-    inst.mod_name.should == 'and2'
+    expect(inst.mod_name).to eq 'and2'
   end
 
   it "associates an instance port to each port on the instantiated module" do
     inst = Inst.new(name: 'u1', mod: and_gate)
-    inst.port_count.should == 3
+    expect(inst.port_count).to eq 3
   end
 end

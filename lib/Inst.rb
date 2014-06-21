@@ -1,3 +1,5 @@
+# This class represents an instantiated module.
+#
 class Inst
   attr_reader :name
 

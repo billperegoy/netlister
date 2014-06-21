@@ -1,3 +1,6 @@
+# This class represents a module. Note that modules can be
+# instantiated multiple times.
+#
 class Mod
   attr_reader :name, :ports
 

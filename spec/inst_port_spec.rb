@@ -12,6 +12,6 @@ describe InstPort do
   it "can create an instance port and associate it with a module port" do
     mod_port = and_gate.find_port('b')
     inst_port = InstPort.new(port: mod_port)
-    inst_port.name.should == 'b'
+    expect(inst_port.name).to eq 'b'
   end
 end
