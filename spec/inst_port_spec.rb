@@ -14,4 +14,11 @@ describe InstPort do
     inst_port = InstPort.new(port: mod_port)
     expect(inst_port.name).to eq 'b'
   end
+
+  it "can connect an instance port to a net" do
+    mod_port = and_gate.find_port('b')
+    inst_port = InstPort.new(port: mod_port)
+    inst_port.connect_to_net Net.new(name: "my_net")
+    expect(inst_port.net.name).to eq "my_net"
+  end
 end
