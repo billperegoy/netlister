@@ -26,4 +26,11 @@ describe Mod do
     top_mod.add_inst(inst)
     expect(top_mod.inst_count).to eq 1
   end
+
+  it "can create a comples multi level module successfully" do
+    half_adder = build_half_adder
+    expect(half_adder.port_count).to eq 4
+    expect(half_adder.inst_count).to eq 2
+    expect(half_adder.wire_count).to eq 4
+  end
 end

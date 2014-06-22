@@ -8,6 +8,7 @@ class Mod
     @name = opts[:name]
     @ports = {}
     @insts = {}
+    @wires = {}
   end
 
   def add_port(port)
@@ -22,8 +23,16 @@ class Mod
     @insts[inst.name] = inst
   end
 
+  def add_wire(wire)
+    @wires[wire.name] = wire
+  end
+
   def inst_count
     @insts.length
+  end
+
+  def wire_count
+    @wires.length
   end
 
   def find_port(name)

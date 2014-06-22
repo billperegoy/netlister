@@ -6,7 +6,10 @@ class Wire
 
   def initialize(opts)
     @name = opts[:name]
+    @mod = opts[:mod]
     @ports = {}
+
+    @mod.add_wire(self) if @mod
   end
 
   def add_port(port)
