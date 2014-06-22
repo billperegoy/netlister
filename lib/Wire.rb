@@ -6,5 +6,14 @@ class Wire
 
   def initialize(opts)
     @name = opts[:name]
+    @ports = {}
+  end
+
+  def add_port(port)
+    @ports[port.name] = port
+  end
+
+  def port_count
+    @ports.length
   end
 end

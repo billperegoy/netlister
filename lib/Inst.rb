@@ -20,6 +20,10 @@ class Inst
     @mod.name
   end
 
+  def find_port(name)
+    @ports[name]
+  end
+
   private
   def check
     raise "New Inst must reference a module" unless @mod
@@ -28,7 +32,7 @@ class Inst
 
   def create_inst_ports
     @mod.ports.each_key do |name|
-      @ports[name] = p
+      @ports[name] = @mod.find_port(name)
     end
   end
 end
