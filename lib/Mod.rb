@@ -97,13 +97,13 @@ class Mod
   def verilog_inst_port_conns(inst)
     inst_port_list = []
     inst.ports.each_key do |p|
-      if inst.ports[p].net
-        net_connection = inst.ports[p].net.name
-      else
-        net_connection = ''
-      end
+      net_connection = get_inst_port_net_connection(inst.ports[p])
       inst_port_list << "         .#{p}(#{net_connection})"
     end
     inst_port_list.join(",\n") + "\n"
+  end
+
+  def get_inst_port_net_connection(inst_port)
+    inst_port ? inst_port.net.name : ''
   end
 end
