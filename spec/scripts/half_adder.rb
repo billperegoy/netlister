@@ -4,7 +4,7 @@ def build_half_adder
   xor_gate.add_port Port.new(name: 'b', type: 'in')
   xor_gate.add_port Port.new(name: 'y', type: 'out')
 
-  and_gate = Mod.new(name: 'xor')
+  and_gate = Mod.new(name: 'and2')
   and_gate.add_port Port.new(name: 'a', type: 'in')
   and_gate.add_port Port.new(name: 'b', type: 'in')
   and_gate.add_port Port.new(name: 'y', type: 'out')
@@ -29,21 +29,23 @@ def build_half_adder
   a_wire = Wire.new(name: 'a', mod: half_adder)
   b_wire = Wire.new(name: 'b', mod: half_adder)
   s_wire = Wire.new(name: 's', mod: half_adder)
-  co_wire = Wire.new(name: 'so', mod: half_adder)
+  co_wire = Wire.new(name: 'co', mod: half_adder)
 
   a_wire.add_port xor_inst.find_port('a')
   a_wire.add_port and_inst.find_port('a')
-  a_wire.add_port a_port
+
+  # FIXME - Do we need an insatnce port here?
+  # a_wire.add_port a_port
 
   b_wire.add_port xor_inst.find_port('b')
   b_wire.add_port and_inst.find_port('b')
-  b_wire.add_port b_port
+  # b_wire.add_port b_port
 
   s_wire.add_port xor_inst.find_port('y')
-  s_wire.add_port s_port
+  # s_wire.add_port s_port
 
-  co_wire.add_port xor_inst.find_port('y')
-  co_wire.add_port co_port
+  co_wire.add_port and_inst.find_port('y')
+  # co_wire.add_port co_port
 
   half_adder
 end

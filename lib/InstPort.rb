@@ -1,7 +1,7 @@
 # This class represents a port on a module instance.
 #
 class InstPort
-  attr_reader :net
+  attr_reader :net, :mod_port
 
   def initialize(opts)
     @mod_port = opts[:port]

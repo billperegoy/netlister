@@ -13,6 +13,7 @@ class Wire
   end
 
   def add_port(port)
+    port.connect_to_net(self)
     @ports[port.name] = port
   end
 

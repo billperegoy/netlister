@@ -1,7 +1,7 @@
 # This class represents an instantiated module.
 #
 class Inst
-  attr_reader :name
+  attr_reader :name, :ports
 
   def initialize(opts)
     @name = opts[:name]
@@ -32,7 +32,7 @@ class Inst
 
   def create_inst_ports
     @mod.ports.each_key do |name|
-      @ports[name] = @mod.find_port(name)
+      @ports[name] = InstPort.new(port: @mod.find_port(name))
     end
   end
 end
